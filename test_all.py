@@ -127,6 +127,10 @@ italian_words_all_correct = {
     "salto": "saulto",
 }
 
+korean_words_all_correct = {
+    "가전제품": "가전 제품",
+}
+
 single_typos_me = {
     "ae",
     "ame",
@@ -1009,6 +1013,9 @@ optional_language_tests = {
         "cavallo": "cavatlo",
         "poltrona": "poltrola",
     },
+    "ko": {
+        "가전제품": "가전 제품",
+    }
 }
 
 
@@ -1081,6 +1088,11 @@ def test_italian():
     assert spelltest(spell_it, italian_words_all_correct) == 0
 
 
+def test_korean():
+    spell_ko = Speller("ko")
+    assert spelltest(spell_ko, korean_words_all_correct) == 0
+
+
 if __name__ == "__main__":
     command = sys.argv[1]
 
@@ -1101,6 +1113,8 @@ if __name__ == "__main__":
         benchmark("spanish words", spell, optional_language_tests["es"])
         spell = Speller("it")
         benchmark("italian words", spell, optional_language_tests["it"])
+        spell = Speller("ko")
+        benchmark("korean words", spell, optional_language_tests["ko"])
     elif command == "find_threshold":
         lang = sys.argv[2]
         test = optional_language_tests[lang]
