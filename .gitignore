@@ -4,3 +4,6 @@ MANIFEST
 .vscode
 autocorrect/data/*
 .coverage
+.idea
+word_count.json
+*.xml
